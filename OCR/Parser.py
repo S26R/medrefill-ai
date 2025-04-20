@@ -40,7 +40,6 @@ def capture_and_extract():
             print("Failed to grab frame.")
             break
         cv2.imshow("Capture - Press SPACE to scan", frame)
-
         k = cv2.waitKey(1)
         if k % 256 == 27 or k % 256 == ord('q'):
             # ESC or Q pressed
@@ -84,3 +83,45 @@ def capture_and_extract():
 
 # Run the capture and extraction
 capture_and_extract()
+
+
+
+# image_path = "IMAGE.jpg"  # Path to the image file
+# def extract_from_saved_image(image_path):
+#     if not os.path.exists(image_path):
+#         print(f"Image '{image_path}' not found.")
+#         return
+
+#     frame = cv2.imread(image_path)
+#     if frame is None:
+#         print(f"Failed to read image from '{image_path}'")
+#         return
+
+#     # Convert to grayscale for better OCR
+#     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+#     # Apply thresholding to improve text visibility for OCR
+#     _, thr = cv2.threshold(gray, 150, 255, cv2.THRESH_BINARY_INV)
+
+#     # Optionally, apply GaussianBlur to reduce noise
+#     blurred = cv2.GaussianBlur(thr, (5, 5), 0)
+
+#     # Use Tesseract to extract text from the processed image
+#     text = pytesseract.image_to_string(blurred, config='--psm 6')
+
+#     # Print OCR output
+#     print("=== OCR Output ===")
+#     print(text)
+
+#     # Extract medicine details
+#     details = extract_medicine_details(text)
+
+#     # Save to JSON
+#     json_name = "medicine_details_from_image.json"
+#     with open(json_name, 'w') as f:
+#         json.dump(details, f, indent=4)
+
+#     print(f"Extracted details saved to {json_name}.")
+
+# # Example usage
+# extract_from_saved_image("IMAGE.jpg")
