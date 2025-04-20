@@ -1,0 +1,11 @@
+.signup {
+  background-color: #4CAF50; /* green */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.signup:hover {
+  background-color: #45a049;
+}
